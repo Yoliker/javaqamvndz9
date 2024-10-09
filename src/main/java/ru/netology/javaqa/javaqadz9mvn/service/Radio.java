@@ -9,25 +9,33 @@ public class Radio {
     }
 
     public void setCurrentNumber(int newCurrentNumber) {
-        if (currentNumber < 0) {  // установка ограничения значений радиостанции
+        if (newCurrentNumber < 0) {  // установка ограничения значений радиостанции
             return;
         }
-        if (currentNumber > 9) {
+        if (newCurrentNumber > 9) {
             return;
         }
         currentNumber = newCurrentNumber;
     }
 
+    public void setMinNumber() {
+        currentNumber = 0;
+    }
+
+    public void setMaxNumber() {
+        currentNumber = 9;
+    }
+
     public void next() {
         if (currentNumber != 9) {
-           currentNumber++;  // переключение на следущую станцию
+            currentNumber++;  // переключение на следущую станцию
         } else {
             currentNumber = 0;
         }
     }
 
     public void prev() {
-        if (currentNumber != 0 ) {
+        if (currentNumber != 0) {
             currentNumber--; // переключение на предыдущую станцию
         } else {
             currentNumber = 9;
@@ -40,13 +48,21 @@ public class Radio {
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (currentVolume < 0) {  // установка ограничения громкости
+        if (newCurrentVolume < 0) {  // установка ограничения громкости
             return;
         }
-        if (currentVolume > 100) {
+        if (newCurrentVolume > 100) {
             return;
         }
         currentVolume = newCurrentVolume;
+    }
+
+    public void setMinVolume() {
+        currentVolume = 0;
+    }
+
+    public void setMaxVolume() {
+        currentVolume = 100;
     }
 
     public void increaseVolume() {

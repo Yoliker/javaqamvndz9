@@ -3,7 +3,7 @@ package ru.netology.javaqa.javaqadz9mvn.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
@@ -18,22 +18,23 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    /* @Test
+    @Test
     public void shouldNotSetUnderMinNumber() {
         Radio radio = new Radio();
+
         radio.setCurrentNumber(-1);  // установка номера радиостанции ниже минимального - не работает
 
         int expected = 0;
         int actual = radio.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
-    } */
+    }
 
     @Test
     public void shouldSetMinNumber() {
         Radio radio = new Radio();
-        radio.setCurrentNumber(2);
-        radio.setCurrentNumber(0); // установка минимального номера радиостанции
+        radio.setCurrentNumber(2);  // установка минимального номера радиостанции
+        radio.setMinNumber();
 
         int expected = 0;
         int actual = radio.getCurrentNumber();
@@ -66,7 +67,7 @@ class RadioTest {
     @Test
     public void shouldSetMaxNumber() {
         Radio radio = new Radio();
-        radio.setCurrentNumber(9);  // установка максимального номера радиостанции
+        radio.setMaxNumber();  // установка максимального номера радиостанции
 
         int expected = 9;
         int actual = radio.getCurrentNumber();
@@ -74,16 +75,16 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    /* @Test
+    @Test
     public void shouldNotSetAfterMaxNumber() {
         Radio radio = new Radio();
-        radio.setCurrentNumber(10);  // установка номера радиостанции после максимального  - не работает
+        radio.setCurrentNumber(10); // установка номера радиостанции после максимального  - не работает
 
         int expected = 0;
         int actual = radio.getCurrentNumber();
 
         Assertions.assertEquals(expected, actual);
-    } */
+    }
 
     @Test
     public void shouldIncreaseMinNumber() {
@@ -193,7 +194,7 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    /* @Test
+    @Test
     public void shouldNotSetUnderMinVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(-1);  // установка громкости ниже минимального - не работает
@@ -202,14 +203,13 @@ class RadioTest {
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
-    } */
+    }
 
     @Test
     public void shouldSetMinVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(2);
-        radio.setCurrentVolume(0); // установка минимальной громкости
-
+        radio.setMinVolume(); // установка минимальной громкости
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -242,7 +242,7 @@ class RadioTest {
     @Test
     public void shouldSetMaxVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(100);  // установка максимальной громкости
+        radio.setMaxVolume();  // установка максимальной громкости
 
         int expected = 100;
         int actual = radio.getCurrentVolume();
@@ -250,8 +250,8 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    /* @Test
-    public void shouldSetUpperMaxVolume() {
+    @Test
+    public void shouldNotSetUpperMaxVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(101);  // установка громкости выше максимальной - не работает
 
@@ -259,7 +259,7 @@ class RadioTest {
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
-    } */
+    }
 
     @Test
     public void shouldIncreaseMinVolume() {
