@@ -1,83 +1,97 @@
 package ru.netology.javaqa.javaqadz9mvn.service;
 
 public class Radio {
+
+    private int maxNumber;
+    private int minNumber;
     private int currentNumber;
+    private int maxVolume;
+    private int minVolume;
     private int currentVolume;
+
+    public Radio() {
+        this.maxNumber = 9;
+        this.maxVolume = 100;
+    }
+
+    public Radio(int size) {
+        this.maxNumber = size - 1;
+        //      this.maxVolume = size - 1;   - как вариант установка кол-ва размеров громкости
+    }
+
+    public int getMaxNumber() {
+        return maxNumber;
+    }
+
+    public int getMinNumber() {
+        return minNumber;
+    }
 
     public int getCurrentNumber() {
         return currentNumber;
     }
 
     public void setCurrentNumber(int newCurrentNumber) {
-        if (newCurrentNumber < 0) {  // установка ограничения значений радиостанции
+        if (newCurrentNumber < minNumber) {  // установка ограничения значений радиостанции
             return;
         }
-        if (newCurrentNumber > 9) {
+        if (newCurrentNumber > maxNumber) {
             return;
         }
         currentNumber = newCurrentNumber;
     }
 
-    public void setMinNumber() {
-        currentNumber = 0;
-    }
-
-    public void setMaxNumber() {
-        currentNumber = 9;
-    }
-
     public void next() {
-        if (currentNumber != 9) {
+        if (currentNumber != maxNumber) {
             currentNumber++;  // переключение на следущую станцию
         } else {
-            currentNumber = 0;
+            currentNumber = minNumber;
         }
     }
 
     public void prev() {
-        if (currentNumber != 0) {
+        if (currentNumber != minNumber) {
             currentNumber--; // переключение на предыдущую станцию
         } else {
-            currentNumber = 9;
+            currentNumber = maxNumber;
         }
     }
 
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {  // установка ограничения громкости
+        if (newCurrentVolume < minVolume) {  // установка ограничения громкости
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
-    public void setMinVolume() {
-        currentVolume = 0;
-    }
-
-    public void setMaxVolume() {
-        currentVolume = 100;
-    }
-
     public void increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume++; // увеличение громкости на 1
         } else {
-            currentVolume = 100;
+            currentVolume = maxVolume;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume--; // уменьшение громкости на 1
         } else {
-            currentVolume = 0;
+            currentVolume = minVolume;
         }
     }
 }
