@@ -1,34 +1,25 @@
 package ru.netology.javaqa.javaqadz9mvn.service;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
 
-    private int maxNumber;
+    private int maxNumber = 9;
     private int minNumber;
     private int currentNumber;
-    private int maxVolume;
+    private int maxVolume = 100;
     private int minVolume;
     private int currentVolume;
 
-    public Radio() {
-        this.maxNumber = 9;
-        this.maxVolume = 100;
-    }
-
     public Radio(int size) {
         this.maxNumber = size - 1;
-        //      this.maxVolume = size - 1;   - как вариант установка кол-ва размеров громкости
-    }
-
-    public int getMaxNumber() {
-        return maxNumber;
-    }
-
-    public int getMinNumber() {
-        return minNumber;
-    }
-
-    public int getCurrentNumber() {
-        return currentNumber;
     }
 
     public void setCurrentNumber(int newCurrentNumber) {
@@ -55,18 +46,6 @@ public class Radio {
         } else {
             currentNumber = maxNumber;
         }
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
