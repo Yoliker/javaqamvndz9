@@ -14,6 +14,8 @@ class RadioTest {
         Assertions.assertEquals(9, radio.getMaxNumber());
         Assertions.assertEquals(0, radio.getCurrentNumber());
         Assertions.assertEquals(0, radio.getMinVolume());
+        Assertions.assertEquals(100, radio.getMaxVolume());
+        Assertions.assertEquals(0, radio.getCurrentVolume());
     }
 
     @Test
